@@ -1,2 +1,2 @@
 # plumbum
-Typescript streams, latin name for lead
+Typescript streams, greek name for lead
