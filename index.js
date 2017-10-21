@@ -45,7 +45,7 @@ class Stream {
 	}
 
 	onEnd () {
-		return new Promise((resolve) => this.pipes[this.pipes.length - 1].on("end", () => resolve()));
+		return new Promise((resolve) => this.pipes[this.pipes.length - 1].on("end", () => resolve(0)));
 	}
 
 }
