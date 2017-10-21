@@ -1,5 +1,8 @@
-export declare class Grapple {
-    private request;
+export declare class Stream<T> {
+    private buffer;
     constructor();
-    get(url: string): Promise<string>;
+
+    write(array: Array<T>): Stream<T>;
+    push(item: T): Stream<T>;
+
 }
