@@ -1,0 +1,25 @@
+{
+  "name": "grapple-http",
+  "version": "1.0.0",
+  "description": "node http adapter for ts",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conorturner/grapple.git"
+  },
+  "keywords": [
+    "http",
+    "ts"
+  ],
+  "author": "Conor Turner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/conorturner/grapple/issues"
+  },
+  "homepage": "https://github.com/conorturner/grapple#readme"
+}
