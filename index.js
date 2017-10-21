@@ -23,6 +23,11 @@ class Stream {
 		return this;
 	}
 
+	forEach(functor) {
+		this.pipes[this.pipes.length - 1].on("data", (chunk) => functor(JSON.parse(chunk.toString())));
+		return this;
+	}
+
 	toArray() {
 		return new Promise((resolve) => {
 			const stream = this.pipes[this.pipes.length - 1];
@@ -33,6 +38,16 @@ class Stream {
 			this.pipes[0].end();
 		});
 	}
+
+	end () {
+		this.pipes[0].end(); //close entry
+		return this;
+	}
+
+	onEnd () {
+		return new Promise((resolve) => this.pipes[this.pipes.length - 1].on("end", () => resolve()));
+	}
+
 }
 
 module.exports = {

@@ -7,7 +7,7 @@ const {Stream} = require("../index");
 
 describe("Test", () => {
 
-	it("Basic Test", (done) => {
+	it("toArray", (done) => {
 
 		const stream = new Stream();
 
@@ -20,6 +20,19 @@ describe("Test", () => {
 				done();
 			})
 			.catch(err => done(err));
+	});
+
+	it("Old School", (done) => {
+
+		const stream = new Stream();
+
+		stream
+			.write([1, 2, 3, 4, 5])
+			.map((item) => Promise.resolve(item + 1))
+			.forEach((item) => console.log(item))
+			.end()
+			.onEnd()
+			.then(() => done());
 	});
 
 });
