@@ -16,7 +16,7 @@ class PromiseTransformStream extends Transform {
 				next();
 			})
 			.catch(error => {
-				throw error;
+				throw error
 			});
 	}
 

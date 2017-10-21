@@ -1,6 +1,7 @@
 "use strict";
 
 const PromiseTransformStream = require("./library/PromiseTransformStream");
+const ConcurrentPromiseTransformStream = require("./library/ConcurrentPromiseTransformStream");
 
 class Stream {
 	constructor() {
@@ -19,6 +20,12 @@ class Stream {
 
 	map(transform) {
 		this.pipes.push(new PromiseTransformStream({transform}));
+		this.pipes[0].pipe(this.pipes[this.pipes.length - 1]);
+		return this;
+	}
+
+	asyncMap(concurrency, transform) {
+		this.pipes.push(new ConcurrentPromiseTransformStream(concurrency, {transform}));
 		this.pipes[0].pipe(this.pipes[this.pipes.length - 1]);
 		return this;
 	}

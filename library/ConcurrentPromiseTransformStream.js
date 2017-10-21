@@ -9,11 +9,16 @@ class ConcurrentPromiseTransformStream extends Transform {
 		this.transform = transform;
 		this.slots = new Array(concurrency).fill(null);
 		this.candidate = null;
+		this.eof = false;
 	}
 
 	_transform(chunk, enc, next) {
 		// console.log(chunk.toString())
 		this.takeSlot(chunk, next);
+	}
+
+	_flush () {
+		this.eof = true;
 	}
 
 	freeSlot(index) {
@@ -32,9 +37,6 @@ class ConcurrentPromiseTransformStream extends Transform {
 			.filter(({slot}) => slot === null);
 
 		if(freeSlots.length === 0) {
-			// console.log(this.candidate);
-			// console.log(freeSlots.length);
-
 			this.candidate = {chunk, next};
 		}
 		else {
