@@ -1,17 +1,11 @@
 "use strict";
 
-class Grapple {
+const {Writable, Readable, Transform} = require('stream');
 
-	constructor(){
-		this.request = require("request-promise-native");
-	}
-
-	get(url) {
-		return this.request(url);
-	}
+class Stream {
 
 }
 
 module.exports = {
-	Grapple
+	Stream
 };
