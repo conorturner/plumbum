@@ -48,7 +48,7 @@ class ConcurrentPromiseTransformStream extends Transform {
 
 	process (chunk) {
 		return this.transform(JSON.parse(chunk.toString()))
-			.then(result => this.push(JSON.stringify(result)))
+			.then(result => this.push(JSON.stringify(result))) //TODO: this doesn't implement back pressure
 	}
 
 }
