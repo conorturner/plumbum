@@ -25,7 +25,7 @@ class Stream {
 	}
 
 	asyncMap(concurrency, transform) {
-		this.pipes.push(new ConcurrentPromiseTransformStream(concurrency, {transform}));
+		this.pipes.push(new ConcurrentPromiseTransformStream({concurrency}, {transform}));
 		this.pipes[0].pipe(this.pipes[this.pipes.length - 1]);
 		return this;
 	}

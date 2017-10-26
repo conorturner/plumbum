@@ -4,8 +4,8 @@ const {Transform} = require("stream");
 
 class ConcurrentPromiseTransformStream extends Transform {
 
-	constructor(concurrency, {transform}) {
-		super();
+	constructor({concurrency, highWaterMark}, {transform}) {
+		super({highWaterMark});
 		this.transform = transform;
 		this.slots = new Array(concurrency).fill(null);
 		this.candidate = null;

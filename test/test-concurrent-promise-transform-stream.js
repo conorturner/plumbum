@@ -23,7 +23,7 @@ describe("Test", () => {
 		const mockReadable = new MockReadable();
 
 		const transform = (item) => new Promise((resolve) => setTimeout(() => resolve(item), item));
-		const pStream = new ConcurrentPromiseTransformStream(3, {transform});
+		const pStream = new ConcurrentPromiseTransformStream({concurrency: 3}, {transform});
 
 
 		pStream.on("data", (chunk) => console.log(chunk.toString()));

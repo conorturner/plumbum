@@ -30,7 +30,6 @@ describe("Test", () => {
 			.write([1, 2, 3, 4, 5])
 			.map((item) => Promise.resolve(item + 1))
 			.forEach((item) => console.log(item))
-			.end()
 			.onEnd()
 			.then(() => done());
 	});
