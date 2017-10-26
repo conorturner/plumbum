@@ -46,11 +46,6 @@ class Stream {
 		});
 	}
 
-	end () {
-		this.pipes[0].end(); //close entry
-		return this;
-	}
-
 	onEnd () {
 		return new Promise((resolve) => this.pipes[this.pipes.length - 1].on("end", () => resolve(0)));
 	}
@@ -58,5 +53,7 @@ class Stream {
 }
 
 module.exports = {
-	Stream
+	Stream,
+	PromiseTransformStream,
+	ConcurrentPromiseTransformStream
 };

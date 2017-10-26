@@ -7,7 +7,6 @@ export declare class Stream<T> {
     map(concurrency: number, transform: Function): Stream<T>;
     forEach(transform: Function): Stream<T>;
     toArray(transform: Function): Promise<Array<T>>;
-    end(): void;
     onEnd(): Promise<number>;
 
 }
