@@ -16,8 +16,8 @@
     "url": "git+https://github.com/conorturner/grapple.git"
   },
   "keywords": [
-    "http",
-    "ts"
+    "streams",
+    "streaming"
   ],
   "author": "Conor Turner",
   "license": "ISC",
