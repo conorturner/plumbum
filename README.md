@@ -1,2 +1,2 @@
 # plumbum
-Typescript streams, greek name for lead
+Light weight node streaming library with TS definitions.

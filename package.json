@@ -1,7 +1,7 @@
 {
   "name": "plumbum",
-  "version": "1.0.2",
-  "description": "node http adapter for ts",
+  "version": "1.0.4",
+  "description": "Light weight node streaming library with TS definitions.",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
